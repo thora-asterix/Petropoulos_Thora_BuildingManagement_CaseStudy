@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Building Management System</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container-fluid my-2 d-flex  flex-column justify-content-center">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Building Management</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a th:href="@{/}" class="nav-link active" aria-current="page" href="#">Home</a>
+						<a th:href="@{/listTenants}" class="nav-link">Tenants </a>
+						<a th:href="@{/listServicesProvided}" class="nav-link">Services</a>
+						<a th:href="@{/listTasks}" class="nav-link">Tasks</a>
+						<a th:href="@{/listIssues}" class="nav-link">Issues</a>
+						<a th:href="@{/listApartments}" class="nav-link">Apartments</a>
+						<a th:href="@{/listArchivedIssues}" class="nav-link">Archived Issues</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="container-fluid mt-3">
+		<div class="row d-flex justify-content-center">
+			<div class="col-3 dark-grey-column"></div>
+			<div class="col-6 justify-content-center ">
+				<h2 class="d-flex align-content-center my-3">Delete Tenant</h2>
+				<form action="#" th:action="@{/deleteTenant}" th:object="${tenant}" method="GET">            
+					<input type="hidden" th:field="*{tenantId}" />
+                    
+                   <div th:switch=${tenant.firstName}>
+                   <p th:case="'Invalid'">Tenant can not be removed. Tenant currently associated with an apartmebt unit.</p>
+	
+                   <button th:case="*" type="submit" class="btn btn-danger"> Delete Tenant</button>
+                   </div>     
+					
+				</form>
+			</div>
+			<div class="col-3 dark-grey-column"></div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
