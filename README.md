@@ -1,0 +1,1 @@
+# Petropoulos_Thora_BuildingManagement_CaseStudy
