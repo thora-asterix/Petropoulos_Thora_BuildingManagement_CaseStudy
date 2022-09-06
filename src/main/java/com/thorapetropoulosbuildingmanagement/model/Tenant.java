@@ -1,5 +1,11 @@
 package com.thorapetropoulosbuildingmanagement.model;
 
+/*
+ * The Tenant class is used to create objects of tenants that rent the apartments in the building
+ */
+
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -89,6 +95,25 @@ public class Tenant {
 
 	public void setNumberOfTenants(Integer numberOfTenants) {
 		this.numberOfTenants = numberOfTenants;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, firstName, lastName, numberOfTenants, phoneNumber, tenantId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tenant other = (Tenant) obj;
+		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(lastName, other.lastName) && Objects.equals(numberOfTenants, other.numberOfTenants)
+				&& Objects.equals(phoneNumber, other.phoneNumber) && Objects.equals(tenantId, other.tenantId);
 	}
 	
 	

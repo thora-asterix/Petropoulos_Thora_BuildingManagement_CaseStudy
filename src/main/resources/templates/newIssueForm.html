@@ -39,7 +39,8 @@
 			<div class="col-3 dark-grey-column"></div>
 			<div class="col-6 justify-content-center ">
 				<h2 class="d-flex align-content-center my-3">Add New Issue</h2>
-				<form action="#" th:action="@{/saveIssue}" th:object="${issueObject}" method="POST" class="was-validated">
+				<form action="#" th:action="@{/saveIssue}" th:object="${issueObject}" method="POST"
+					class="was-validated">
 					<div class="form-group">
 						<label>Select Issue Type:</label>
 						<select class="form-control" th:field="*{issueCategory}" required>
@@ -48,10 +49,6 @@
 								th:text="${issueCateg}"></option>
 						</select>
 					</div>
-					<!--           <select  th:field="*{issueCategory}">
-                <option value="">Select Issue Type</option>
-                <option th:each="issueCateg : ${issueCategories}" th:value="${issueCateg}" th:text="${issueCateg}"></option>
-             </select> -->
 					<div class="form-group">
 						<label>Select Issue Status:</label>
 						<select class="form-control" th:field="*{status}" required>
@@ -60,17 +57,27 @@
 							</option>
 						</select>
 					</div>
-					<!--      <select  th:field="*{status}">
-                <option value="">Select Issue Status</option>
-                <option th:each="issueSt : ${issueStatus}" th:value="${issueSt}" th:text="${issueSt}"></option>
-             </select> -->
+					<label>Describe Issue</label>
 					<input type="text" th:field="*{issueDescription}" placeholder="Describe Issue"
 						class="form-control mb-4" required>
-					<!--    <input type="text" th:field="*{taskDescription}" placeholder="Task Description" class="form-control mb-4"> -->
-					<input type="text" placeholder="Enter Service Provider ID" name="idService" th:value="${idService}"
-						class="form-control mb-4" required>
-					<input type="text" placeholder="Enter Apartment Unit Number" name="idApartment"
-						th:value="${idApartment}" class="form-control mb-4" required>
+			<!--		<input type="text" placeholder="Enter Apartment Unit Number" name="idApartment"
+						th:value="${idApartment}" class="form-control mb-4" required> -->
+					<div class="form-group">
+					<label>Select Apartment Unit</label>
+						<select class="form-control" name="idApartment" required>
+							<option value="">Options</option>
+							<option th:each="listApt : ${listApartments}" th:value="${listApt.apartmentUnitNumber}"
+								th:text="${listApt.apartmentUnitNumber}"></option>
+						</select>
+					</div>
+					<div class="form-group">
+					<label>Select Service Provider</label>
+						<select class="form-control" name="idService" required>
+							<option value="">Options</option>
+							<option th:each="listServ : ${listServices}" th:value="${listServ.serviceId}"
+								th:text="${listServ.companyName}"></option>
+						</select>
+					</div>
 					<button type="submit" class="btn btn-secondary"> Save Issue</button>
 				</form>
 			</div>

@@ -39,41 +39,51 @@
 			<div class="col-3 dark-grey-column"></div>
 			<div class="col-6 justify-content-center ">
 				<h2 class="d-flex align-content-center my-3">Update Task</h2>
-				<form action="#" th:action="@{/saveUpdatedTask}" th:object="${taskObject}" method="POST"  class="was-validated">
+				<form action="#" th:action="@{/saveUpdatedTask}" th:object="${taskObject}" method="POST"
+					class="was-validated">
 					<input type="hidden" th:field="*{taskId}" />
 					<div class="form-group">
 						<label>Select Task Type:</label>
 						<select class="form-control" th:field="*{taskName}" required>
 							<option value="">Task Type</option>
 							<option th:each="taskCateg : ${taskCategories}" th:value="${taskCateg}"
-								th:text="${taskCateg}">
+								th:text="${taskCateg}"  >
 							</option>
 						</select>
-					</div> 
-						<!--		<select th:field="*{taskName}">
+					</div>
+					<!--		<select th:field="*{taskName}">
 						<option value="">Select Task Type</option>
 						<option th:each="taskCateg : ${taskCategories}" th:value="${taskCateg}" th:text="${taskCateg}">
 						</option>
 					</select> -->
 					<label>Description</label>
 					<input type="text" th:field="*{taskDescription}" placeholder="Task Description"
-						class="form-control mb-4" required>					
-							<div class="form-group">
+						class="form-control mb-4" required>
+					<div class="form-group">
 						<label>Select Task Status:</label>
 						<select class="form-control" th:field="*{status}" required>
 							<option value="">Task Status</option>
 							<option th:each="taskSt : ${taskStatus}" th:value="${taskSt}" th:text="${taskSt}"></option>
 						</select>
-					</div> 
-					
-			<!--		<select th:field="*{status}">
+					</div>
+			<div class="form-group">
+				<label>Service Company</label>
+				<select class="form-control" name="id" required>
+					<option value="">Select Service Provider</option>
+					<option th:each="listServ : ${listServices}" th:value="${listServ.serviceId}" th:text="${listServ.companyName}"
+						th:selected="${nameService}"></option>
+				</select>
+			</div>
+					<!--		<select th:field="*{status}">
 						<option value="">Select Task Status</option>
 						<option th:each="taskSt : ${taskStatus}" th:value="${taskSt}" th:text="${taskSt}"></option>
 					</select>   -->
-					<label>Service Provider</label>
-						<input type="text" placeholder="Enter Service Provider ID" name="id" th:value="${id}"
-							class="form-control" >
-				
+
+
+		<!--		<label>Service Provider</label>
+					<input type="text" placeholder="Enter Service Provider ID" name="id" th:value="${id}"
+						class="form-control"  th:readonly="${nameService}"> -->
+					<br>
 					<button type="submit" class="btn btn-secondary"> Update Task</button>
 				</form>
 			</div>

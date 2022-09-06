@@ -1,4 +1,10 @@
 package com.thorapetropoulosbuildingmanagement.model;
+/*
+ * The ServiceProvided class is used to created objects that represent companies that provide a service to the building. 
+ * Issues and Task have services assigned to them
+ */
+
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -92,6 +98,23 @@ public class ServiceProvided {
 		this.email = email;
 	}
 	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(companyName, contactFullName, email, phoneNumber, serviceId, serviceType);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ServiceProvided other = (ServiceProvided) obj;
+		return Objects.equals(companyName, other.companyName) && Objects.equals(contactFullName, other.contactFullName)
+				&& Objects.equals(email, other.email) && Objects.equals(phoneNumber, other.phoneNumber)
+				&& Objects.equals(serviceId, other.serviceId) && Objects.equals(serviceType, other.serviceType);
+	}
 
 }

@@ -42,15 +42,15 @@
 				<form action="#" th:action="@{/saveUpdatedApartment}" th:object="${apartmentUnit}" method="POST"  class="was-validated">
 			    	<label>Aparment Number</label>
 					<input type="hidden" th:field="*{apartmentId}" />
-					<input type="text" th:field="*{apartmentUnitNumber}" placeholder="Apartment Unit Number"
+					<input type="text" th:readonly="true" th:field="*{apartmentUnitNumber}" placeholder="Apartment Unit Number"
 						class="form-control mb-4" >
 				    <label>Floor Number</label>
-					<input type="text" th:field="*{floorNumber}" placeholder="Floor Number" class="form-control mb-4" required>
+					<input type="text" th:readonly="true" th:field="*{floorNumber}" placeholder="Floor Number" class="form-control mb-4" required>
 					<label>Bedroom Number</label>
-					<input type="text" th:field="*{bedroomNumber}" placeholder="Bedroom Number"
+					<input type="text" th:readonly="true" th:field="*{bedroomNumber}" placeholder="Bedroom Number"
 						class="form-control mb-4" required>
 					<label>Bathroom Number</label>
-					<input type="text" th:field="*{bathroomNumber}" placeholder="Bathroom Number"
+					<input type="text" th:readonly="true" th:field="*{bathroomNumber}" placeholder="Bathroom Number"
 						class="form-control mb-4" required>
 					<div class="form-group">
 						<label>Select Task Status:</label>
@@ -60,16 +60,20 @@
 								th:text="${apStatus}"></option>
 						</select>
 					</div>
-					<!--       <select  th:field="*{rentalStatus}">
-                <option value="">Select Apartment Status</option>
-                <option th:each="apStatus : ${apartmentStatus}" th:value="${apStatus}" th:text="${apStatus}"></option>
-             </select>  -->
-             <label>Tenant</label>
+					<div class="form-group">
+			<label>Tenant</label>
+						<select class="form-control" name="tenantId" required>
+							<option value="">Assign Tenant</option>
+							<option th:each="listTen : ${listTenants}" th:value="${listTen.tenantId}"
+								th:text="${listTen.email}" th:selected="${emailTenant}" ></option>
+						</select> 
+					</div> 
+          <!--   <label>Tenant</label>
 					<input  type="text" placeholder="Enter Tenant ID" name="tenantId" th:value="${tenantId}"
-						class="form-control mb-4">
+						class="form-control mb-4"> -->
 					<button type="submit" class="btn btn-secondary"> Update Apartment</button>
 				</form>
-			</div>
+			</div> 
 			<div class="col-3 dark-grey-column"></div>
 		</div>
 	</div>

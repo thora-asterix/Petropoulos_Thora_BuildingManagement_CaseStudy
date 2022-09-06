@@ -40,7 +40,8 @@
 			<div class="col-6 justify-content-center ">
 				<h2 class="d-flex align-content-center my-3">Add New Service</h2>
 				<form action="#" th:action="@{/saveServiceProvided}" th:object="${serviceProvided}" method="POST" class="was-validated">
-					<input type="text" th:field="*{companyName}" placeholder="Company Name" class="form-control mb-4" required>
+					<label>Company Name</label>
+					<input type="text" th:field="*{companyName}" placeholder="enter value" class="form-control mb-4" required>
 					<!--    <select  th:field="*{serviceType}" >
                 <option  value="">Select Service Type</option>
                 <option th:each="service : ${serviceCategories}" th:value="${service}" th:text="${service}"></option>
@@ -53,9 +54,12 @@
 							</option>
 						</select>
 					</div>
+					<label>Contact Full Name</label>
 					<input type="text" th:field="*{contactFullName}" placeholder="Contact Full Name"
 						class="form-control mb-4" required>
-					<input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4" required>
+						<label>Email</label>
+					<input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4" required>
+					<label>Phone Number</label>
 					<input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="form-control mb-4" required>
 					<button type="submit" class="btn btn-secondary"> Save Service</button>
 				</form>

@@ -1,6 +1,11 @@
 package com.thorapetropoulosbuildingmanagement.model;
 
+/*
+ * This class creates issue objects. An issue is a problem that an apartment tenant has and needs to be fixed.
+ * The issues have standard categories and a service provider is assigned to them to fix the problem
+ */
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -137,6 +142,28 @@ public class Issue {
 
 	public void setService(ServiceProvided service) {
 		this.service = service;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(apartmentUnit, issueCategory, issueCloseDate, issueDescription, issueId, issueStartDate,
+				service, status);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Issue other = (Issue) obj;
+		return Objects.equals(apartmentUnit, other.apartmentUnit) && Objects.equals(issueCategory, other.issueCategory)
+				&& Objects.equals(issueCloseDate, other.issueCloseDate)
+				&& Objects.equals(issueDescription, other.issueDescription) && Objects.equals(issueId, other.issueId)
+				&& Objects.equals(issueStartDate, other.issueStartDate) && Objects.equals(service, other.service)
+				&& Objects.equals(status, other.status);
 	}
 
 	

@@ -1,5 +1,10 @@
 package com.thorapetropoulosbuildingmanagement.model;
 
+/*
+ * The Task class  is used to create daily tasks that are associated with the building's maintanance
+ */
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -88,6 +93,25 @@ public class Task {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(service, status, taskDescription, taskId, taskName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		return Objects.equals(service, other.service) && Objects.equals(status, other.status)
+				&& Objects.equals(taskDescription, other.taskDescription) && Objects.equals(taskId, other.taskId)
+				&& Objects.equals(taskName, other.taskName);
 	}
 	
 	

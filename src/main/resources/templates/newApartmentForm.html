@@ -40,17 +40,20 @@
 			<div class="col-6 justify-content-center ">
 				<h2 class="d-flex align-content-center my-3">Add New Apartment</h2>
 				<form action="#" th:action="@{/saveApartmentUnit}" th:object="${apartmentUnit}" method="POST"  class="was-validated">
-
-					<input type="text" th:field="*{apartmentUnitNumber}" placeholder="Apartment Unit Number"
+					<label>Apartment Unit Number</label>
+					<input type="number" th:field="*{apartmentUnitNumber}" placeholder="enter value"
 						class="form-control mb-4" required>
-					<input type="text" th:field="*{floorNumber}" placeholder="Floor Number" class="form-control mb-4" required>
-					<input type="text" th:field="*{bedroomNumber}" placeholder="Bedroom Number"
+						<label>Floor Number</label>
+					<input type="number" min="1" max="50" th:field="*{floorNumber}" placeholder="enter value " class="form-control mb-4" required>
+					<label>Bedroom Number</label>
+					<input type="number" min="0" max="10" th:field="*{bedroomNumber}" placeholder="enter value"
 						class="form-control mb-4" required>
-					<input type="text" th:field="*{bathroomNumber}" placeholder="Bathroom Number"
+						<label>Bathroom Number</label>
+					<input type="number" min="1" max="8" th:field="*{bathroomNumber}" placeholder="enter value "
 						class="form-control mb-4" required>
 
 					<div class="form-group">
-						<label>Select Apartment Status:</label>
+						<label>Select Apartment Status</label>
 						<select class="form-control" th:field="*{rentalStatus}" required>
 							<option value="">Apartment Status</option>
 							<option th:each="apStatus : ${apartmentStatus}" th:value="${apStatus}"

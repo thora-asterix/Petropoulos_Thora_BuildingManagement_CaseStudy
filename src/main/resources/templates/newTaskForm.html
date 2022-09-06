@@ -38,7 +38,7 @@
 			<div class="col-3 dark-grey-column"></div>
 			<div class="col-6 justify-content-center ">
 				<h2 class="d-flex align-content-center my-3">Add New Task</h2>
-				<form action="#" th:action="@{/saveTask}" th:object="${taskObject}" method="POST"  class="was-validated">
+				<form action="#" th:action="@{/saveTask}" th:object="${taskObject}" method="POST" class="was-validated">
 					<div class="form-group">
 						<label>Select Task Type:</label>
 						<select class="form-control" th:field="*{taskName}" required>
@@ -48,7 +48,7 @@
 					</div>
 					<div class="form-group">
 						<label>Enter Issue Description:</label>
-						<textarea type="text" th:field="*{taskDescription}" placeholder="Task Description"
+						<textarea type="text" th:field="*{taskDescription}" placeholder="enter value"
 							class="form-control" required> </textarea>
 					</div>
 					<div class="form-group">
@@ -58,35 +58,25 @@
 							<option th:each="taskSt : ${taskStatus}" th:value="${taskSt}" th:text="${taskSt}"></option>
 						</select>
 					</div>
-		<div class="form-group">
+					<!--	<div class="form-group">
 						<label>Enter Service Provider ID:</label>
 						<input type="text" placeholder="Enter Service Provider ID" name="id" th:value="${id}"
 							class="form-control" required>
-					</div>  
- <!--		<div class="form-group">
- 					<select class="form-control">
- 				    	<option value="">Select Service Provider</option>
- 					   <option th:each="listServ : ${listServices}"  th:name="id" th:value="${listServ.serviceId}" th:text="${listServ.companyName}"></option>
- 					</select>
- 					</div> -->
-
-		<!--			<div class="form-group">
-						<label for="myBrowser">Choose Service from list:</label>
-						<input list="browsers" name="browser" id="browser"  class=form-control>
-						<datalist id="browsers">
-						<select th:field="*{service}">
+					</div>  -->
+					<div class="form-group">
+					<label>Select Service Provider</label>
+						<select class="form-control" name="id" required>
+							<option value="">Select Service Provider</option>
 							<option th:each="listServ : ${listServices}" th:value="${listServ.serviceId}"
-								th:text="${listServ.companyName}" >
-	                    </select>
-						</datalist>
-					</div> -->
+								th:text="${listServ.companyName}"></option>
+						</select>
+					</div>
 					<button type="submit" class="btn btn-secondary"> Save Task</button>
 				</form>
 			</div>
 			<div class="col-3 dark-grey-column"></div>
 		</div>
 	</div>
-
 
 
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"

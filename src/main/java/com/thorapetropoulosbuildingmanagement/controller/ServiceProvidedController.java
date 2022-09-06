@@ -136,13 +136,7 @@ public class ServiceProvidedController {
 		model.addAttribute("serviceProvided",serviceProvidedTemp);
 		
     	List<String> serviceTypes = new ArrayList<>();
-    	serviceTypes.add(ServiceCategories.CARPENTER.value);
-    	serviceTypes.add(ServiceCategories.CARPETCLEANING.value);
-    	serviceTypes.add(ServiceCategories.GENERALCLEANING.value);
-    	serviceTypes.add(ServiceCategories.LOCKSMITH.value);
-    	serviceTypes.add(ServiceCategories.PLUMBER.value);
-    	serviceTypes.add(ServiceCategories.POOLMAINTANANCE.value);
-    	serviceTypes.add(ServiceCategories.WINDOWCLEANING.value);
+    	serviceTypes.add(serviceProvidedTemp.getServiceType());
     	
   
     	model.addAttribute("serviceCategories", serviceTypes);

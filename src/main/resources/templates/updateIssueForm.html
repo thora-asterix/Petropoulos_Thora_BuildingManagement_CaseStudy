@@ -39,7 +39,8 @@
 			<div class="col-3 dark-grey-column"></div>
 			<div class="col-6 justify-content-center ">
 				<h2 class="d-flex align-content-center my-3">Update Issue</h2>
-				<form action="#" th:action="@{/saveUpdatedIssue}" th:object="${issueObject}" method="POST" class="was-validated">
+				<form action="#" th:action="@{/saveUpdatedIssue}" th:object="${issueObject}" method="POST"
+					class="was-validated">
 					<input type="hidden" th:field="*{issueId}" />
 					<div class="form-group">
 						<label>Select Issue Type:</label>
@@ -49,10 +50,6 @@
 								th:text="${issueCateg}"></option>
 						</select>
 					</div>
-					<!--           <select  th:field="*{issueCategory}">
-                <option value="">Select Issue Type</option>
-                <option th:each="issueCateg : ${issueCategories}" th:value="${issueCateg}" th:text="${issueCateg}"></option>
-             </select> -->
 					<div class="form-group">
 						<label>Select Issue Status:</label>
 						<select class="form-control" th:field="*{status}" required>
@@ -61,27 +58,28 @@
 							</option>
 						</select>
 					</div>
-					<!--      <select  th:field="*{status}">
-                <option value="">Select Issue Status</option>
-                <option th:each="issueSt : ${issueStatus}" th:value="${issueSt}" th:text="${issueSt}"></option>
-             </select> -->
 					<label>Issue Description</label>
 					<input type="text" th:field="*{issueDescription}" placeholder="Describe Issue"
 						class="form-control mb-4" required>
 					<!--    <input type="text" th:field="*{taskDescription}" placeholder="Task Description" class="form-control mb-4"> -->
 					<label>Service Provider</label>
-					<input type="text" placeholder="Enter Service Provider ID" name="idService" th:value="${idService}"
-							class="form-control" required>
-				
+				<!--	<input type="text" placeholder="Enter Service Provider ID" name="idService" th:value="${idService}" 
+							class="form-control" th:readonly="${idService}" required>  -->
+					<select class="form-control" name="idService" required>
+						<option value="">Select Service Provider</option> 
+						<option th:each="listServ : ${listServices}" th:value="${idService}"
+							th:text="${listServ.companyName}" th:selected="${nameService}" ></option>
+					</select> 
+					<br>
 					<label>Apartment Unit</label>
-					<input type="text" placeholder="Enter Apartment Unit Number" name="idApartment"
+					<input type="text"  th:readonly="true" placeholder="Enter Apartment Unit Number" name="idApartment"
 						th:value="${idApartment}" class="form-control mb-4" required>
-					<input type="text" placeholder="Date Opened" name="openDate" class="form-control mb-4" th:value="${openDate}"> 
-					
-					
+					<label>Date Started</label>
+					<input type="text" th:readonly="true" placeholder="Date Opened" name="openDate" class="form-control mb-4"
+						th:value="${openDate}">
 					<button type="submit" class="btn btn-secondary"> Save Issue</button>
 				</form>
-		</div>
+			</div>
 			<div class="col-3 dark-grey-column"></div>
 		</div>
 	</div>

@@ -46,35 +46,25 @@ public class TaskController {
             taskTypes.add(TaskCategories.POOLMAINTANANCE.value);	
 	    	
 	    	model.addAttribute("taskCategories", taskTypes);
-	    	
-	    	
+	    		    	
 	    	List<String> taskStatus = new ArrayList<>();
 	    	taskStatus.add(TaskStatusValues.COMPLETED.value);
 	    	taskStatus.add(TaskStatusValues.PENDING.value);
 	    	
 	    	model.addAttribute("taskStatus",taskStatus);
 	    	
-	
 	    	List<ServiceProvided> listServices = serviceProvided.findAll();
 	    	
 	    	model.addAttribute("listServices",listServices);
-	    	
-	    	
+	     	
 	    	return "newTaskForm";
 	    }
 	    
-//	    @PostMapping("/saveTask")
-//	    public String saveTask(@ModelAttribute("taskObject") Task task ) {
-//	    	// save service to database
-//	  
-//	    	taskService.save(task);		
-//	    	return "redirect:/listTasks";
-//	    }
-	    
+
 	    @PostMapping("/saveTask")
 	    public String saveTask(@ModelAttribute("taskObject") Task task, @RequestParam(name = "id") String id ) {
 	    	// save service to database
-	    	System.out.println("********This is the serviceProviderId "+ Integer.parseInt(id));
+	    	System.out.println("******************************* name of service is : "+id);
 	
 	    	Integer theId = Integer.parseInt(id);
 	    	ServiceProvided sProvided = serviceProvided.findById(theId);
@@ -117,10 +107,8 @@ public class TaskController {
 		model.addAttribute("taskObject",taskObject);
 		
 	  	List<String> taskTypes = new ArrayList<>();
-        taskTypes.add(TaskCategories.GENERALCLEANING.value);
-        taskTypes.add(TaskCategories.GENERALREPAIR.value);
-        taskTypes.add(TaskCategories.POOLMAINTANANCE.value);	
-    	
+        taskTypes.add(taskObject.getTaskName());
+       
     	model.addAttribute("taskCategories", taskTypes);
     	
     	
@@ -130,8 +118,17 @@ public class TaskController {
     	
     	model.addAttribute("taskStatus",taskStatus);
     	
+    	List<ServiceProvided> listServices = new ArrayList<ServiceProvided>();
+    	
+        ServiceProvided listService = serviceProvided.findById(taskObject.getService().getServiceId());
+        listServices.add(listService);
+    	model.addAttribute("listServices",listServices);
+    	
     	String idService = Integer.toString(taskObject.getService().getServiceId());
     	model.addAttribute("id",idService);
+    	
+     	String nameService = taskObject.getService().getCompanyName();
+    	model.addAttribute("nameService",nameService);
 		
 		return "updateTaskForm";
 		

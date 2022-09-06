@@ -78,9 +78,13 @@ public class IssueController {
 	    	
 	    	List<ServiceProvided> listProviders = serviceProvidedService.findAll();
 	    	
-	    	model.addAttribute("listProviders", listProviders);
+	    	model.addAttribute("listServices", listProviders);
 	    	
-	  //  	model.addAttribute("id", id);
+	    	List<ApartmentUnit> listApartments = apartmentUnitService.findAll();
+	    	
+	    	model.addAttribute("listApartments",listApartments);
+	    	
+	    	
 	    	
 	    	return "newIssueForm";
 	    }
@@ -179,11 +183,8 @@ public class IssueController {
 			model.addAttribute("issueObject",issueObject);
 			
 			List<String> issueCategories = new ArrayList<>();
-            issueCategories.add(IssueCategories.CARPENTRY.value);
-            issueCategories.add(IssueCategories.CLEANING.value);
-            issueCategories.add(IssueCategories.ELECTRIC.value);
-            issueCategories.add(IssueCategories.GENERAL.value);
-            issueCategories.add(IssueCategories.PLUMBING.value);
+            issueCategories.add(issueObject.getIssueCategory());
+           
  
 	    	model.addAttribute("issueCategories", issueCategories);
 	    	
@@ -194,12 +195,19 @@ public class IssueController {
 	    	issueStatus.add(IssueStatusValues.PENDING.value);
 
 	    	
-	    	model.addAttribute("issueStatus",issueStatus);
+	    	model.addAttribute("issueStatus",issueStatus);   	
 	    	
+	   // 	List<ServiceProvided> listProviders = serviceProvidedService.findAll();
 	    	
-	    	List<ServiceProvided> listProviders = serviceProvidedService.findAll();
+	    	List<ServiceProvided> listServices = new ArrayList<ServiceProvided>();
 	    	
-	    	model.addAttribute("listProviders", listProviders);
+	        ServiceProvided listService = serviceProvidedService.findById(issueObject.getService().getServiceId());
+	        listServices.add(listService);
+	    	model.addAttribute("listServices",listServices);  	
+	    	
+	    	String nameService = issueObject.getService().getCompanyName();
+	    	model.addAttribute("nameService",nameService);
+	   // 	model.addAttribute("listServices", listProviders);
 	    	
 	    	ApartmentUnit au = issueObject.getApartmentUnit();
 	    	String idApartment = Integer.toString(au.getApartmentUnitNumber()); 

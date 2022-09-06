@@ -60,13 +60,20 @@ public class ApartmentUnitController {
 	    @PostMapping("/saveUpdatedApartment")
 	    public String saveUpatedApartment(@ModelAttribute("apartmentUnit") ApartmentUnit apartmentUnit, @RequestParam(name = "tenantId") String tenantId ) {
 	    	// save service to database
+	    	
 	    	System.out.println("********This is the serviceProviderId "+ Integer.parseInt(tenantId));
 	
 	    	Integer theId = Integer.parseInt(tenantId);
-	    	Tenant tenantTemp = tenantService.findById(theId);
-	 	    System.out.println("This is the service object "+ tenantTemp);
-            
-	        apartmentUnit.setTenant(tenantTemp);
+	    	if(theId != 222) {
+	    		Tenant tenantTemp = tenantService.findById(theId);
+		 	    System.out.println("This is the service object "+ tenantTemp); 	   
+		        apartmentUnit.setTenant(tenantTemp);
+		        
+		        if(apartmentUnit.getRentalStatus().equals("Available")) {
+		        	apartmentUnit.setRentalStatus("Occupied");
+		        }
+	    	}
+	    	
 	        apartmentUnitService.save(apartmentUnit);		
 	    	return "redirect:/listApartments";
 	    }
@@ -98,7 +105,39 @@ public class ApartmentUnitController {
     	apartmentStatus.add(ApartmentStatusValues.OCCUPIED.value);
     	
     	model.addAttribute("apartmentStatus",apartmentStatus);
-        
+    	
+    	List<Tenant> listTenants = new ArrayList<Tenant>();
+    	
+    	if(aptUnit.getTenant() == null) {
+    	Tenant temp = new Tenant();
+    	temp.setTenantId(222);
+    	temp.setEmail("NO TENANT OPTION");
+    	temp.setFirstName("NO TENANT");
+    	temp.setLastName("NO TENANT");
+    	temp.setPhoneNumber("1111111111");
+    	temp.setNumberOfTenants(1);
+    	listTenants.add(temp);
+    	listTenants.addAll(tenantService.findAll());
+    	model.addAttribute("listTenants",listTenants);
+    	} else {
+    		
+    		String emailTenant = aptUnit.getTenant().getEmail();
+        	model.addAttribute("emailTenant",emailTenant);
+        	
+    		Tenant temp = new Tenant();
+        	temp.setTenantId(222);
+        	temp.setEmail("NO TENANT OPTION");
+        	temp.setFirstName("NO TENANT");
+        	temp.setLastName("NO TENANT");
+        	temp.setPhoneNumber("1111111111");
+        	temp.setNumberOfTenants(1);
+        	listTenants.add(temp);
+    		listTenants.add(aptUnit.getTenant());
+    		model.addAttribute("listTenants",listTenants);
+    	}
+    	
+    
+
     	if(aptUnit.getTenant() == null) {
     		model.addAttribute("tenantId",null);
     	} else {

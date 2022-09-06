@@ -44,15 +44,16 @@
 
 					<input type="hidden" th:field="*{tenantId}" />
 
+					<label>First Name</label>
 					<input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control mb-4">
-
+					<label>Last Name</label>
 					<input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control mb-4">
-
+					<label>Phone Number</label>
 					<input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="form-control mb-4">
-
-					<input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4">
-
-					<input type="text" th:field="*{numberOfTenants}" placeholder="Number in Household"
+					<label>Email</label>
+					<input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4">
+					<label>Number of Occupants (1-8)</label>
+					<input type="number" min="1" max="8" th:field="*{numberOfTenants}" placeholder="Number in Household"
 						class="form-control mb-4">
 
 					<button type="submit" class="btn btn-secondary"> Update Tenant</button>

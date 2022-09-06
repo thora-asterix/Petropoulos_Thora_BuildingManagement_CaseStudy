@@ -1,5 +1,10 @@
 package com.thorapetropoulosbuildingmanagement.model;
 
+/*
+ * This class is used to create apartment unit objects for the building
+ */
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-
 
 @Entity
 @Table(name="apartment_units")
@@ -119,6 +122,26 @@ public class ApartmentUnit {
 
 	public void setTenant(Tenant tenant) {
 		this.tenant = tenant;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(apartmentUnitNumber, bathroomNumber, bedroomNumber, floorNumber, rentalStatus);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ApartmentUnit other = (ApartmentUnit) obj;
+		return  Objects.equals(apartmentUnitNumber, other.apartmentUnitNumber)
+				&& Objects.equals(bathroomNumber, other.bathroomNumber)
+				&& Objects.equals(bedroomNumber, other.bedroomNumber) && Objects.equals(floorNumber, other.floorNumber)
+				&& Objects.equals(rentalStatus, other.rentalStatus);
 	}
 
 

@@ -42,9 +42,10 @@
 				<form action="#" th:action="@{/saveUpdatedServiceProvided}" th:object="${serviceProvided}"
 					method="POST"  class="was-validated">
 					<input type="hidden" th:field="*{serviceId}" />
+					<label>Company Name</label>
 					<input type="text" th:field="*{companyName}" placeholder="Company Name" class="form-control mb-4" required>
 					<div class="form-group">
-						<label>Select Service Type:</label>
+						<label>Service Type</label>
 						<select class="form-control" th:field="*{serviceType}" required>
 							<option value="">Service Type</option>
 							<option th:each="service : ${serviceCategories}" th:value="${service}" th:text="${service}">
@@ -55,12 +56,12 @@
                 <option value="">Select Service Type</option>
                 <option th:each="service : ${serviceCategories}" th:value="${service}" th:text="${service}"></option>
              </select>   -->
-
+					<label>Contact Name</label>
 					<input type="text" th:field="*{contactFullName}" placeholder="Contact Full Name"
 						class="form-control mb-4" required>
-
-					<input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4" required>
-
+					<label>Email</label>
+					<input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4" required>
+					<label>Phone Number</label>
 					<input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="form-control mb-4" required>
 
 					<button type="submit" class="btn btn-secondary"> Update Service</button>
