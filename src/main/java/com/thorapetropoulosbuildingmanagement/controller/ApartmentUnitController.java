@@ -67,13 +67,16 @@ public class ApartmentUnitController {
 	    	if(theId != 222) {
 	    		Tenant tenantTemp = tenantService.findById(theId);
 		 	    System.out.println("This is the service object "+ tenantTemp); 	   
-		        apartmentUnit.setTenant(tenantTemp);
+		        apartmentUnit.setTenant(tenantTemp);  
+		        apartmentUnit.setRentalStatus("Occupied");
 		        
-		        if(apartmentUnit.getRentalStatus().equals("Available")) {
-		        	apartmentUnit.setRentalStatus("Occupied");
-		        }
 	    	}
 	    	
+	    	// make sure apartment is status availble if no tenant
+	    	
+          	if(theId == 222){
+          		apartmentUnit.setRentalStatus("Available");
+          	}
 	        apartmentUnitService.save(apartmentUnit);		
 	    	return "redirect:/listApartments";
 	    }
@@ -136,7 +139,6 @@ public class ApartmentUnitController {
     		model.addAttribute("listTenants",listTenants);
     	}
     	
-    
 
     	if(aptUnit.getTenant() == null) {
     		model.addAttribute("tenantId",null);

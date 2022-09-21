@@ -38,4 +38,10 @@ public class ApartmentUnitService {
 		public void save(ApartmentUnit apartmentUnit) {
 			apartmentUnitRepository.save(apartmentUnit);
 		}
+		
+		public List<ApartmentUnit> findAllByRentalStatus(String st){
+			
+			return apartmentUnitRepository.findAllByRentalStatus(st);
+			
+		}
 }

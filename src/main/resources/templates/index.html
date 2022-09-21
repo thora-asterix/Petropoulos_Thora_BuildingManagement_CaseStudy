@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Building Management System</title>
@@ -28,6 +29,9 @@
 						<a th:href="@{/listIssues}" class="nav-link">Issues</a>
 						<a th:href="@{/listApartments}" class="nav-link">Apartments</a>
 						<a th:href="@{/listArchivedIssues}" class="nav-link">Archived Issues</a>
+						<form th:action="@{/logout}" method="post" class="mx-lg-5">
+							<input type="submit" value="Logout" class="btn btn-light text-danger"/>
+						</form>
 					</div>
 				</div>
 			</div>

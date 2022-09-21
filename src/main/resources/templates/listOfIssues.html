@@ -73,7 +73,7 @@
 							<td> <a th:href="@{/showFormForUpdateIssue/{id}(id=${issue.issueId})}"
 									class="btn btn-secondary">Update</a></td>
 							<td> <a th:href="@{/archiveIssue/{id}(id=${issue.issueId})}"
-									class="btn btn-danger">Archive</a></td>
+								th:style="${issue.issueCloseDate == null? 'display: none':'display: block'}"	class="btn btn-danger">Archive</a></td>
 						</tr>
 					</tbody>
 				</table>

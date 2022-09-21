@@ -1,6 +1,9 @@
 package com.thorapetropoulosbuildingmanagement.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.thorapetropoulosbuildingmanagement.model.ApartmentUnit;
@@ -12,5 +15,8 @@ public interface ApartmentUnitRepository extends JpaRepository<ApartmentUnit, In
 	
 	// get apartment unit by apartment number
 	public ApartmentUnit findByApartmentUnitNumber(Integer num);	
+	
+	@Query("FROM ApartmentUnit WHERE rentalStatus= ?1")
+	public List<ApartmentUnit> findAllByRentalStatus(String st);
 
 }

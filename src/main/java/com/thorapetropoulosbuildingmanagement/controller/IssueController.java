@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,22 +22,22 @@ import com.thorapetropoulosbuildingmanagement.model.ApartmentUnit;
 import com.thorapetropoulosbuildingmanagement.model.Issue;
 import com.thorapetropoulosbuildingmanagement.model.IssueArchived;
 import com.thorapetropoulosbuildingmanagement.model.ServiceProvided;
-import com.thorapetropoulosbuildingmanagement.model.Task;
-import com.thorapetropoulosbuildingmanagement.repository.ApartmentUnitRepository;
-import com.thorapetropoulosbuildingmanagement.repository.ServiceProvidedRepository;
+
 import com.thorapetropoulosbuildingmanagement.service.ApartmentUnitService;
 import com.thorapetropoulosbuildingmanagement.service.IssueArchivedService;
 import com.thorapetropoulosbuildingmanagement.service.IssueService;
 import com.thorapetropoulosbuildingmanagement.service.ServiceProvidedService;
-import com.thorapetropoulosbuildingmanagement.service.TaskService;
+
 import com.thorapetropoulosbuildingmanagement.utilities.IssueStatusValues;
-import com.thorapetropoulosbuildingmanagement.utilities.TaskCategories;
-import com.thorapetropoulosbuildingmanagement.utilities.TaskStatusValues;
+
 import com.thorapetropoulosbuildingmanagement.utilities.IssueCategories;
 
 
 @Controller
 public class IssueController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(IssueController.class);
+
 	
 	@Autowired
 	private IssueService issueService;
@@ -57,6 +59,7 @@ public class IssueController {
 	        Issue issue = new Issue();
 	    	model.addAttribute("issueObject", issue);	
 	    	
+	    	
 	    	List<String> issueCategories = new ArrayList<>();
             issueCategories.add(IssueCategories.CARPENTRY.value);
             issueCategories.add(IssueCategories.CLEANING.value);
@@ -64,8 +67,11 @@ public class IssueController {
             issueCategories.add(IssueCategories.GENERAL.value);
             issueCategories.add(IssueCategories.PLUMBING.value);
  
+            logger.debug("Entering IsuueProvidedForm"+issue);
 	    	model.addAttribute("issueCategories", issueCategories);
+	    	System.out.println(issueCategories + " issue categories");
 	    	
+	           logger.debug("Entering IsuueProvidedForm and listing categories: "+issueCategories);
 	    	
 	    	List<String> issueStatus = new ArrayList<>();
 	    	issueStatus.add(IssueStatusValues.CLOSED.value);

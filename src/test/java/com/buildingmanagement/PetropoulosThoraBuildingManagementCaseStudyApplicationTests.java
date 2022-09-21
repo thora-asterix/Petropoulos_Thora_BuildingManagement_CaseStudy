@@ -54,6 +54,19 @@ class PetropoulosThoraBuildingManagementCaseStudyApplicationTests {
 	@Autowired
 	private IssueArchivedRepository repoIssueArchived;
 	
+	
+	@Test
+	void testGetApartmenRentalStatus() {
+		
+		List<ApartmentUnit> au = repoApartment.findAllByRentalStatus("Available");
+		System.out.println(au + " apartment units avaialble");
+		for(ApartmentUnit s: au) {
+			System.out.println("status is "+ s.getRentalStatus());
+		}
+		assertNotNull(au);
+	}
+
+	
 
 	@Test
 	void testSaveApartmentUnit() {
