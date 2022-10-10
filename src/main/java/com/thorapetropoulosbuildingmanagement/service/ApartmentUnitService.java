@@ -3,10 +3,15 @@ package com.thorapetropoulosbuildingmanagement.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.thorapetropoulosbuildingmanagement.model.ApartmentUnit;
-
+import com.thorapetropoulosbuildingmanagement.model.Issue;
+import com.thorapetropoulosbuildingmanagement.model.Task;
 import com.thorapetropoulosbuildingmanagement.repository.ApartmentUnitRepository;
 
 @Service
@@ -44,4 +49,15 @@ public class ApartmentUnitService {
 			return apartmentUnitRepository.findAllByRentalStatus(st);
 			
 		}
+		
+		public Page<ApartmentUnit> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection ){
+			
+			Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : 
+				Sort.by(sortField).descending();
+			
+			Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+			
+			return apartmentUnitRepository.findAll(pageable);	
+		}
+		
 }

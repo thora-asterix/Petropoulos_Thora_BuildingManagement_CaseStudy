@@ -1,4 +1,7 @@
 package com.thorapetropoulosbuildingmanagement.utilities;
+/*
+ * This enum was created to created to create categories for the service UI pull down menu
+ */
 
 public enum ServiceCategories {
 	

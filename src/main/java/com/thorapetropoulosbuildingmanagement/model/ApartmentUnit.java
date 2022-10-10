@@ -1,7 +1,7 @@
 package com.thorapetropoulosbuildingmanagement.model;
 
 /*
- * This class is used to create apartment unit objects for the building
+ * This class is used to create apartment unit objects for the building. An apartment can be available or occupied
  */
 import java.util.Objects;
 

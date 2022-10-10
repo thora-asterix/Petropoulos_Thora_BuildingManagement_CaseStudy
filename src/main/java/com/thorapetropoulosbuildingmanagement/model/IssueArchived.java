@@ -1,6 +1,6 @@
 package com.thorapetropoulosbuildingmanagement.model;
 /*
- * An archived issue is no longer active and it is stored for reference
+ * An archived issue is no longer active and it is stored for reference. An issue can be archived only if it is completed
  */
 
 import java.util.Date;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.thorapetropoulosbuildingmanagemen.exceptions.ApiRequestException;
 import com.thorapetropoulosbuildingmanagement.model.ServiceProvided;
 import com.thorapetropoulosbuildingmanagement.model.Task;
 import com.thorapetropoulosbuildingmanagement.model.Tenant;
@@ -32,7 +34,6 @@ public class TaskController {
 	@Autowired
 	private ServiceProvidedService serviceProvided;
 	
-	 
 	  @GetMapping("/addNewTask")
 	    public String showNewTaskForm(Model model) {
 	    	
@@ -91,12 +92,23 @@ public class TaskController {
 	    
 	
 	@GetMapping("/listTasks")
-	public String viewTaskList(Model model) {
+	public String viewTaskList(Model model) {	
+		String result = "";
+		try {
+	     
+			result = findPaginated(1, "taskName", "asc", model);
 		
-		List<Task> allTask = taskService.findAll();
-		model.addAttribute("listTasks", allTask);
+		} catch(Exception e) {
+			
+		throw new ApiRequestException("List not found");
 		
-		return "listOfTasks";
+		}
+		return result;
+		
+//		List<Task> allTask = taskService.findAll();
+//		model.addAttribute("listTasks", allTask);
+//		
+//		return "listOfTasks";
 	}
 	
 	@GetMapping("/showFormForUpdateTask/{id}")
@@ -150,5 +162,27 @@ public class TaskController {
 		taskService.deleteById(task.getTaskId());
           
 	   return "redirect:/listTasks";
+	}
+	
+	@GetMapping("/page3/{pageNo}")
+	public String findPaginated(@PathVariable (value = "pageNo") int pageNo, @RequestParam("sortField") String sortField,
+			@RequestParam("sortDir") String sortDir,
+			Model model) {
+		int pageSize = 5;
+		
+		Page<Task> page = taskService.findPaginated(pageNo, pageSize, sortField, sortDir);
+	
+		List<Task> listTasks = page.getContent();
+
+		model.addAttribute("currentPage", pageNo);
+		model.addAttribute("totalPages", page.getTotalPages());
+		model.addAttribute("totalItems", page.getTotalElements());
+		model.addAttribute("listTasks", listTasks);
+		
+		model.addAttribute("sortField", sortField);
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc": "asc");
+		
+		return "listOfTasks";
 	}
 }

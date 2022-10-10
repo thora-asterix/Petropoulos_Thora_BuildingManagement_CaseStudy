@@ -6,7 +6,7 @@
 	<title>Building Management System</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link th:href="@{css/main.css}" rel="stylesheet">
+	<link th:href="@{/css/main.css}" rel="stylesheet">
 </head>
 
 <body>
@@ -28,30 +28,41 @@
 						<a th:href="@{/listIssues}" class="nav-link">Issues</a>
 						<a th:href="@{/listApartments}" class="nav-link">Apartments</a>
 						<a th:href="@{/listArchivedIssues}" class="nav-link">Archived Issues</a>
+							<form th:action="@{/logout}" method="post" class="mx-lg-5">
+							<input type="submit" value="Logout" class="btn btn-light text-danger" />
+						</form>
 					</div>
 				</div>
 			</div>
 		</nav>
 	</div>
 
-	<div class="container-fluid">
+	<div class="container-fluid top-apt">
 		<div class="row justify-content-center">
 			<a th:href="@{/addNewApartment}" class="btn btn-light btn-lg text-secondary w-40 mx-auto my-5 p-4"> Add New
 				Apartment </a>
 		</div>
 	</div>
-	<div class="container-fluid ">
+	<div class="container-fluid my-5">
 		<div class="row d-flex justify-content-center">
-			<div class="col-1 dark-grey-column"></div>
+	<!--	<div class="col-1 dark-grey-column"></div> -->
 			<div class="col-10 ">
 				<table border="1" class="table table-striped table-responsive-md">
 					<thead>
 						<tr>
-							<th>Apartment Number</th>
+							<th>
+								<a
+									th:href="@{'/page6/' + ${currentPage} + '?sortField=apartmentUnitNumber&sortDir=' + ${reverseSortDir}}">Apartment
+									Number</a>
+							</th>
 							<th>Floor Number</th>
 							<th>Bedroom Number</th>
 							<th>Bathroom Number</th>
-							<th>Rental Status</th>
+							<th>
+								<a
+									th:href="@{'/page6/' + ${currentPage} + '?sortField=rentalStatus&sortDir=' + ${reverseSortDir}}">Rental
+									Status</a>
+							</th>
 							<th>Tenant First Name</th>
 							<th>Tenant Last Name</th>
 							<th colspan="2"></th>
@@ -71,9 +82,36 @@
 						</tr>
 					</tbody>
 				</table>
+				<div th:if="${totalPages > 1}" class="d-flex justify-content-around">
+					<div class="d-flex justify-content-between" style="width:70%">
+						<div class="pagination-tabs">
+							Total Rows: [[${totalItems}]]
+						</div>
+						<div class="pagination-tabs">
+							<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+								<a th:if="${currentPage != i}"
+									th:href="@{'/page6/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+								<span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+							</span>
+						</div>
+						<div class="pagination-tabs">
+							<a th:if="${currentPage < totalPages}"
+								th:href="@{'/page6/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+							<span th:unless="${currentPage < totalPages}">Next</span>
+						</div>
+
+						<div class="pagination-tabs">
+							<a th:if="${currentPage < totalPages}"
+								th:href="@{'/page6/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+							<span th:unless="${currentPage < totalPages}">Last</span>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-1 dark-grey-column"></div>
+	<!--	<div class="col-1 dark-grey-column"></div> -->
 		</div>
+	</div>
+	<div class="d-flex bottom-apt">
 	</div>
 
 

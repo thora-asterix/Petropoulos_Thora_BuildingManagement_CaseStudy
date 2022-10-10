@@ -1,6 +1,10 @@
 package com.thorapetropoulosbuildingmanagement.model;
 
 import java.util.Arrays;
+
+/*
+ * This is an implementation of the UserDetails used in Sprnig Boot Security Authentication
+ */
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;

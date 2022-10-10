@@ -1,6 +1,10 @@
 package com.thorapetropoulosbuildingmanagement.model;
 
 import javax.persistence.Column;
+
+/*
+ * A user an entity for creating users that can login to the application
+ */
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

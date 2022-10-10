@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.thorapetropoulosbuildingmanagemen.exceptions.ApiRequestException;
 import com.thorapetropoulosbuildingmanagement.model.ApartmentUnit;
+import com.thorapetropoulosbuildingmanagement.model.Issue;
 import com.thorapetropoulosbuildingmanagement.model.ServiceProvided;
 import com.thorapetropoulosbuildingmanagement.model.Task;
 import com.thorapetropoulosbuildingmanagement.model.Tenant;
@@ -33,6 +36,9 @@ public class ApartmentUnitController {
 	@Autowired
 	private TenantService tenantService;
 	
+	/*
+	 * display a new apartment form. Dropdowns are prepopulated with enum values and a new Aparment Unit object is passed to the model as an attributed
+	 */
 	  @GetMapping("/addNewApartment")
 	    public String showNewApartmentForm(Model model) {
 	    	
@@ -57,6 +63,9 @@ public class ApartmentUnitController {
 	    	return "redirect:/listApartments";
 	    }
 	    
+	    /*
+	     * ApartmentUnit object is bind to the form and passed to the method as a ModelAttribute parameter
+	     */
 	    @PostMapping("/saveUpdatedApartment")
 	    public String saveUpatedApartment(@ModelAttribute("apartmentUnit") ApartmentUnit apartmentUnit, @RequestParam(name = "tenantId") String tenantId ) {
 	    	// save service to database
@@ -86,14 +95,27 @@ public class ApartmentUnitController {
 	@GetMapping("/listApartments")
 	public String viewApartmentList(Model model) {
 		
-		List<ApartmentUnit> apartmentUnits = apartmentUnitService.findAll();
-		System.out.println("This is the apartment unit list " + apartmentUnits);
-		for(ApartmentUnit au : apartmentUnits) {
-			System.out.println(au.getRentalStatus());
-		}
-		model.addAttribute("apartmentUnitsList", apartmentUnits);
+		String result = "";
+		try {
+	     
+			result = findPaginated(1, "apartmentUnitNumber", "asc", model);
 		
-		return "listOfApartmentUnits";
+		} catch(Exception e) {
+			
+		throw new ApiRequestException("List not found");
+		
+		}
+		return result;
+		
+		
+//		List<ApartmentUnit> apartmentUnits = apartmentUnitService.findAll();
+//		System.out.println("This is the apartment unit list " + apartmentUnits);
+//		for(ApartmentUnit au : apartmentUnits) {
+//			System.out.println(au.getRentalStatus());
+//		}
+//		model.addAttribute("apartmentUnitsList", apartmentUnits);
+//		
+//		return "listOfApartmentUnits";
 	}
 	
 	@GetMapping("/showFormForUpdateApartment/{id}")
@@ -151,4 +173,24 @@ public class ApartmentUnitController {
 		
 	}
 
+	@GetMapping("/page6/{pageNo}")
+	public String findPaginated(@PathVariable (value = "pageNo") int pageNo, @RequestParam("sortField") String sortField,
+			@RequestParam("sortDir") String sortDir,
+			Model model) {
+		int pageSize = 5;
+		Page<ApartmentUnit> page = apartmentUnitService.findPaginated(pageNo, pageSize, sortField, sortDir);
+	
+		List<ApartmentUnit> apartmentUnitList = page.getContent();
+
+		model.addAttribute("currentPage", pageNo);
+		model.addAttribute("totalPages", page.getTotalPages());
+		model.addAttribute("totalItems", page.getTotalElements());
+		model.addAttribute("apartmentUnitsList", apartmentUnitList);
+		
+		model.addAttribute("sortField", sortField);
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc": "asc");
+		
+		return "listOfApartmentUnits";
+	}
 }

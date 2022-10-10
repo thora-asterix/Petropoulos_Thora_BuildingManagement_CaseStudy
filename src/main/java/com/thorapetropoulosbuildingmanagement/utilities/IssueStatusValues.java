@@ -1,5 +1,8 @@
 package com.thorapetropoulosbuildingmanagement.utilities;
 
+/*
+ * This enum is used to create categories for the issues UI pull down menu
+ */
 public enum IssueStatusValues {
 	
 	NEWISSUE("new Issue"),

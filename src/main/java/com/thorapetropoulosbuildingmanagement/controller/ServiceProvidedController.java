@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.thorapetropoulosbuildingmanagemen.exceptions.ApiRequestException;
 import com.thorapetropoulosbuildingmanagement.model.Issue;
 import com.thorapetropoulosbuildingmanagement.model.ServiceProvided;
 import com.thorapetropoulosbuildingmanagement.model.Task;
@@ -60,7 +63,7 @@ public class ServiceProvidedController {
     @PostMapping("/saveServiceProvided")
     public String saveServiceProvided(@ModelAttribute("serviceProvided") ServiceProvided servicePro ) {
     	// save service to database
-
+        
     	serviceProvidedService.save(servicePro);		
     	return "redirect:/listServicesProvided";
     }
@@ -68,7 +71,7 @@ public class ServiceProvidedController {
 	
     @PostMapping("/saveUpdatedServiceProvided")
     public String saveUpdatedServiceProvided(@ModelAttribute("serviceProvided") ServiceProvided servicePro ) {
-
+    	
     	serviceProvidedService.save(servicePro);		
     	return "redirect:/listServicesProvided";
     }
@@ -77,10 +80,23 @@ public class ServiceProvidedController {
 	@GetMapping("/listServicesProvided")
 	public String viewServiceList(Model model) {
 		
-		List<ServiceProvided> allProvidedServices = serviceProvidedService.findAll();
-		model.addAttribute("listProvidedServices", allProvidedServices);
+		String result = "";
+		try {
+	     
+			result =  findPaginated(1, "companyName", "asc", model);
 		
-		return "listOfProvidedServices";
+		} catch(Exception e) {
+			
+		throw new ApiRequestException("List not found");
+		
+		}
+		return result;
+		
+
+//		List<ServiceProvided> allProvidedServices = serviceProvidedService.findAll();
+//		model.addAttribute("listProvidedServices", allProvidedServices);
+//		
+//		return "listOfProvidedServices";
 	}
 	
 	
@@ -143,5 +159,27 @@ public class ServiceProvidedController {
 		
 		return "updateServiceProvidedForm";
 		
+	}
+	
+	@GetMapping("/page/{pageNo}")
+	public String findPaginated(@PathVariable (value = "pageNo") int pageNo ,@RequestParam("sortField") String sortField,
+			@RequestParam("sortDir") String sortDir,
+			Model model) {
+		int pageSize = 5;
+		
+		Page<ServiceProvided> page = serviceProvidedService.findPaginated(pageNo, pageSize, sortField, sortDir);
+	
+		List<ServiceProvided> listServiceProvided = page.getContent();
+		System.out.println("List of paginated objects : "+listServiceProvided);
+		model.addAttribute("currentPage", pageNo);
+		model.addAttribute("totalPages", page.getTotalPages());
+		model.addAttribute("totalItems", page.getTotalElements());
+		model.addAttribute("listProvidedServices", listServiceProvided);
+		
+		model.addAttribute("sortField", sortField);
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc": "asc");
+		
+		return "listOfProvidedServices";
 	}
 }

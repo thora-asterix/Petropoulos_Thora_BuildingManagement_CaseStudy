@@ -14,7 +14,7 @@
 	<div class="container-fluid my-2">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="#">Building Management</a>
+				<a class="navbar-brand help" href="#">Building Management</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 					data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
 					aria-label="Toggle navigation">
@@ -30,8 +30,9 @@
 						<a th:href="@{/listApartments}" class="nav-link">Apartments</a>
 						<a th:href="@{/listArchivedIssues}" class="nav-link">Archived Issues</a>
 						<form th:action="@{/logout}" method="post" class="mx-lg-5">
-							<input type="submit" value="Logout" class="btn btn-light text-danger"/>
+							<input type="submit" value="Logout" class="btn btn-light text-danger" />
 						</form>
+
 					</div>
 				</div>
 			</div>
@@ -41,8 +42,33 @@
 		<div class="row d-flex justify-content-center">
 			<div class="col-2 dark-grey-column me-1"></div>
 			<div class="col-7 light-grey-column"></div>
-			<div class="col-2 dark-grey-column ms-1"></div>
+			<div class="col-2 dark-grey-column ms-1 d-flex justify-content-center">
+				<button id="title">Manual</button>
+			</div>
 		</div>
+	</div>
+	<div class="modal2" id="simpleModal">
+		<div class="modal-content">
+			<div class='modal-header'>
+				<h1>How to start the app</h1><span id="closeBtn" class="closeBtn">&times;</span>
+			</div>
+			<div class="modal-body">
+				<p>
+				<ol>
+					<li>Create your apartments and choose apartment numbers in the 1000s according to floor.</li>
+					<li> Next created your services. The services are companies and people that will serve your building
+						for daily tasks or issues with the apartments. </li>
+					<li>At this point you can add tasks to your interface. Tasks depend on services so they can only
+						been created when you already have at least one service in your application.</li>
+					<li>Tenants can be add the tenants can be added after the apartements are available in your
+						application.</li>
+					<li>Issues can be added after the services and the apartments are added to your application.</li>
+				</ol>
+
+				</p>
+			</div>
+		</div>
+
 	</div>
 
 

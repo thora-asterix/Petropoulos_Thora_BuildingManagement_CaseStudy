@@ -1,113 +1,24 @@
-2022-09-21 09:04:00.355  INFO 8680 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2022-09-21 09:04:00.480  INFO 8680 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-09-21 09:04:00.509  INFO 8680 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-21 09:04:00.523  INFO 8680 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2022-09-21 09:04:00.526  INFO 8680 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2022-09-21 09:04:00.792  INFO 8680 --- [restartedMain] raBuildingManagementCaseStudyApplication : Starting PetropoulosThoraBuildingManagementCaseStudyApplication using Java 16.0.2 on LAPTOP-E4VMHBVF with PID 8680 (C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy\target\classes started by thora in C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy)
-2022-09-21 09:04:00.793 DEBUG 8680 --- [restartedMain] raBuildingManagementCaseStudyApplication : Running with Spring Boot v2.7.3, Spring v5.3.22
-2022-09-21 09:04:00.794  INFO 8680 --- [restartedMain] raBuildingManagementCaseStudyApplication : No active profile set, falling back to 1 default profile: "default"
-2022-09-21 09:04:01.263  INFO 8680 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-21 09:04:01.328  INFO 8680 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 7 JPA repository interfaces.
-2022-09-21 09:04:01.623  INFO 8680 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-09-21 09:04:01.625  INFO 8680 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-09-21 09:04:01.626  INFO 8680 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-09-21 09:04:01.676  INFO 8680 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-09-21 09:04:01.677  INFO 8680 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 876 ms
-2022-09-21 09:04:01.766  INFO 8680 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-21 09:04:01.780  INFO 8680 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2022-09-21 09:04:01.784  INFO 8680 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2022-09-21 09:04:01.785  INFO 8680 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
-2022-09-21 09:04:16.755  INFO 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : Starting PetropoulosThoraBuildingManagementCaseStudyApplication using Java 16.0.2 on LAPTOP-E4VMHBVF with PID 4744 (C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy\target\classes started by thora in C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy)
-2022-09-21 09:04:16.757 DEBUG 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : Running with Spring Boot v2.7.3, Spring v5.3.22
-2022-09-21 09:04:16.758  INFO 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : No active profile set, falling back to 1 default profile: "default"
-2022-09-21 09:04:16.848  INFO 4744 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-09-21 09:04:16.849  INFO 4744 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-09-21 09:04:18.230  INFO 4744 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-21 09:04:18.393  INFO 4744 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 7 JPA repository interfaces.
-2022-09-21 09:04:19.633  INFO 4744 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-09-21 09:04:19.649  INFO 4744 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-09-21 09:04:19.650  INFO 4744 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-09-21 09:04:19.820  INFO 4744 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-09-21 09:04:19.821  INFO 4744 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2971 ms
-2022-09-21 09:04:20.156  INFO 4744 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-21 09:04:20.253  INFO 4744 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-21 09:04:20.568  INFO 4744 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-21 09:04:20.784  INFO 4744 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-09-21 09:04:20.918  INFO 4744 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-09-21 09:04:20.951  INFO 4744 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
-2022-09-21 09:04:22.551  INFO 4744 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-21 09:04:22.568  INFO 4744 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-21 09:04:22.673  WARN 4744 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-09-21 09:04:23.960  INFO 4744 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b5cc12a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@211100d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@130c531c, org.springframework.security.web.header.HeaderWriterFilter@62c10068, org.springframework.security.web.csrf.CsrfFilter@23e2cf0d, org.springframework.security.web.authentication.logout.LogoutFilter@4524c09f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@418f209f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@c3a3d5d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@e9a94b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e988c02, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@262a46b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@119a047e, org.springframework.security.web.session.SessionManagementFilter@6b9a4ef9, org.springframework.security.web.access.ExceptionTranslationFilter@170ead6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d852fd4]
-2022-09-21 09:04:24.248  INFO 4744 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2022-09-21 09:04:24.631  INFO 4744 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-09-21 09:04:24.695  INFO 4744 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-09-21 09:04:24.715  INFO 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : Started PetropoulosThoraBuildingManagementCaseStudyApplication in 8.693 seconds (JVM running for 10.254)
-2022-09-21 09:04:55.171  INFO 4744 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-09-21 09:04:55.172  INFO 4744 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-09-21 09:04:55.177  INFO 4744 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2022-09-21 09:04:55.359  WARN 4744 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [116] milliseconds.
-2022-09-21 10:49:26.881  INFO 4744 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2022-09-21 10:49:26.967  INFO 4744 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-09-21 10:49:26.977  INFO 4744 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2022-09-21 10:49:27.018  INFO 4744 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-21 10:49:27.044  INFO 4744 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-09-21 10:49:27.052  INFO 4744 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-09-21 10:49:27.430  INFO 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : Starting PetropoulosThoraBuildingManagementCaseStudyApplication using Java 16.0.2 on LAPTOP-E4VMHBVF with PID 4744 (C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy\target\classes started by thora in C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy)
-2022-09-21 10:49:27.430 DEBUG 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : Running with Spring Boot v2.7.3, Spring v5.3.22
-2022-09-21 10:49:27.430  INFO 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : No active profile set, falling back to 1 default profile: "default"
-2022-09-21 10:49:27.978  INFO 4744 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-21 10:49:28.044  INFO 4744 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 7 JPA repository interfaces.
-2022-09-21 10:49:28.320  INFO 4744 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-09-21 10:49:28.330  INFO 4744 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-09-21 10:49:28.331  INFO 4744 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-09-21 10:49:28.379  INFO 4744 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-09-21 10:49:28.379  INFO 4744 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 941 ms
-2022-09-21 10:49:28.471  INFO 4744 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-21 10:49:28.486  INFO 4744 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2022-09-21 10:49:28.490  INFO 4744 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2022-09-21 10:49:28.491  INFO 4744 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
-2022-09-21 10:49:28.685  INFO 4744 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-21 10:49:28.686  INFO 4744 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-21 10:49:28.740  WARN 4744 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-09-21 10:49:29.277  INFO 4744 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@61d15bb7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57f7fa13, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b594c12, org.springframework.security.web.header.HeaderWriterFilter@5a16ad45, org.springframework.security.web.csrf.CsrfFilter@710b8e3b, org.springframework.security.web.authentication.logout.LogoutFilter@5ae18bc2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@237227ef, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4bc5b220, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@65a87858, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51284dac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e3bae49, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5757765d, org.springframework.security.web.session.SessionManagementFilter@68e70ae, org.springframework.security.web.access.ExceptionTranslationFilter@70715f5a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2dc3e5d0]
-2022-09-21 10:49:29.371  INFO 4744 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2022-09-21 10:49:29.509  INFO 4744 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-09-21 10:49:29.534  INFO 4744 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-09-21 10:49:29.542  INFO 4744 --- [restartedMain] raBuildingManagementCaseStudyApplication : Started PetropoulosThoraBuildingManagementCaseStudyApplication in 2.198 seconds (JVM running for 6315.036)
-2022-09-21 10:49:29.545  INFO 4744 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-09-21 10:50:10.987  INFO 4744 --- [RMI TCP Connection(109)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-09-21 10:50:11.015  INFO 4744 --- [RMI TCP Connection(109)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-09-21 10:50:11.025  INFO 4744 --- [RMI TCP Connection(109)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-21 10:50:11.026  INFO 4744 --- [RMI TCP Connection(109)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2022-09-21 10:50:11.030  INFO 4744 --- [RMI TCP Connection(109)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2022-09-21 10:50:28.576  INFO 6700 --- [restartedMain] raBuildingManagementCaseStudyApplication : Starting PetropoulosThoraBuildingManagementCaseStudyApplication using Java 16.0.2 on LAPTOP-E4VMHBVF with PID 6700 (C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy\target\classes started by thora in C:\Users\thora\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\Petropoulos_Thora_BuildingManagement_CaseStudy)
-2022-09-21 10:50:28.578 DEBUG 6700 --- [restartedMain] raBuildingManagementCaseStudyApplication : Running with Spring Boot v2.7.3, Spring v5.3.22
-2022-09-21 10:50:28.580  INFO 6700 --- [restartedMain] raBuildingManagementCaseStudyApplication : No active profile set, falling back to 1 default profile: "default"
-2022-09-21 10:50:28.692  INFO 6700 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-09-21 10:50:28.692  INFO 6700 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-09-21 10:50:30.086  INFO 6700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-21 10:50:30.239  INFO 6700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137 ms. Found 7 JPA repository interfaces.
-2022-09-21 10:50:31.510  INFO 6700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-09-21 10:50:31.528  INFO 6700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-09-21 10:50:31.528  INFO 6700 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-09-21 10:50:31.717  INFO 6700 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-09-21 10:50:31.718  INFO 6700 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3023 ms
-2022-09-21 10:50:32.128  INFO 6700 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-21 10:50:32.232  INFO 6700 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-21 10:50:32.588  INFO 6700 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-21 10:50:32.817  INFO 6700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-09-21 10:50:32.962  INFO 6700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-09-21 10:50:32.997  INFO 6700 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
-2022-09-21 10:50:34.420  INFO 6700 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-21 10:50:34.437  INFO 6700 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-21 10:50:34.537  WARN 6700 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-09-21 10:50:36.042  INFO 6700 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@75e7f375, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d34cc42, org.springframework.security.web.context.SecurityContextPersistenceFilter@3300bbea, org.springframework.security.web.header.HeaderWriterFilter@23e2cf0d, org.springframework.security.web.csrf.CsrfFilter@569440b4, org.springframework.security.web.authentication.logout.LogoutFilter@262a46b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3c883f36, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2e148ae1, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4716ee1c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55e2ebbc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31eb0f55, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@174bff3b, org.springframework.security.web.session.SessionManagementFilter@51367a8f, org.springframework.security.web.access.ExceptionTranslationFilter@11514d74, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@44b26ee7]
-2022-09-21 10:50:36.343  INFO 6700 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2022-09-21 10:50:36.800  INFO 6700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-09-21 10:50:36.884  INFO 6700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-09-21 10:50:36.905  INFO 6700 --- [restartedMain] raBuildingManagementCaseStudyApplication : Started PetropoulosThoraBuildingManagementCaseStudyApplication in 9.088 seconds (JVM running for 10.724)
-2022-09-21 10:51:20.736  INFO 6700 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-09-21 10:51:20.737  INFO 6700 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-09-21 10:51:20.740  INFO 6700 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-09-21 10:51:20.937  WARN 6700 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [130] milliseconds.
+2022-10-10 09:15:58.948  INFO 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : ******************** Hello from IssueController
+2022-10-10 09:15:59.014 TRACE 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is a trace log example
+2022-10-10 09:15:59.014  INFO 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is an info log example
+2022-10-10 09:15:59.015 DEBUG 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is a debug log example
+2022-10-10 09:15:59.015 ERROR 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is an error log example
+2022-10-10 09:15:59.015  WARN 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is a warn log example
+2022-10-10 14:21:28.403  INFO 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : ******************** Hello from IssueController
+2022-10-10 14:21:28.409 TRACE 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is a trace log example
+2022-10-10 14:21:28.409  INFO 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is an info log example
+2022-10-10 14:21:28.409 DEBUG 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is a debug log example
+2022-10-10 14:21:28.409 ERROR 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is an error log example
+2022-10-10 14:21:28.410  WARN 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is a warn log example
+2022-10-10 14:33:06.354  INFO 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : ******************** Hello from IssueController
+2022-10-10 14:33:06.355 TRACE 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is a trace log example
+2022-10-10 14:33:06.355  INFO 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is an info log example
+2022-10-10 14:33:06.355 DEBUG 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is a debug log example
+2022-10-10 14:33:06.355 ERROR 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is an error log example
+2022-10-10 14:33:06.355  WARN 23612 --- [http-nio-8080-exec-4] c.t.controller.IssueController           : This is a warn log example
+2022-10-10 14:33:34.949  INFO 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : ******************** Hello from IssueController
+2022-10-10 14:33:34.949 TRACE 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is a trace log example
+2022-10-10 14:33:34.949  INFO 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is an info log example
+2022-10-10 14:33:34.949 DEBUG 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is a debug log example
+2022-10-10 14:33:34.949 ERROR 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is an error log example
+2022-10-10 14:33:34.950  WARN 23612 --- [http-nio-8080-exec-6] c.t.controller.IssueController           : This is a warn log example

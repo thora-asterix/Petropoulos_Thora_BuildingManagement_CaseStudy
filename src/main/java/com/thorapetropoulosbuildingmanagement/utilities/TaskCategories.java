@@ -1,5 +1,8 @@
 package com.thorapetropoulosbuildingmanagement.utilities;
 
+/*
+ * This enum was created to display categories of tasks in the task UI pull down menu
+ */
 public enum TaskCategories {
 	
 	GENERALCLEANING("Genereal Cleaning"),
