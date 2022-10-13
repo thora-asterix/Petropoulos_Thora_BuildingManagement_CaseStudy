@@ -19,7 +19,7 @@ For the back-end of the application the following technologies were used:
 For the front-end  of the application the following technologies were used:
 -  Thymeleaf templates were used, along with Bootstrap, CSS3, HTML5 and JavaScript
  - A small React app was also created as front-end technology that consumes the public API of vacant apartments (This is a small side project to practice using other front-end technologies besides Thymeleaf templates.  It was completed with React, Bootstrap and the AXIOS library
-![image](https://user-images.githubusercontent.com/15972295/195645055-d9b7f9de-e82b-44ba-994b-f1e0be3c2875.png)
+
 
 
 
