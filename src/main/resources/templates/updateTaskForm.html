@@ -44,12 +44,12 @@
 					<input type="hidden" th:field="*{taskId}" />
 					<div class="form-group">
 						<label>Select Task Type:</label>
-						<select class="form-control" th:field="*{taskName}" required>
+				<select class="form-control" th:field="*{taskName}" required>
 							<option value="">Task Type</option>
 							<option th:each="taskCateg : ${taskCategories}" th:value="${taskCateg}"
 								th:text="${taskCateg}"  >
 							</option>
-						</select>
+						</select> 
 					</div>
 					<!--		<select th:field="*{taskName}">
 						<option value="">Select Task Type</option>
@@ -71,7 +71,7 @@
 				<select class="form-control" name="id" required>
 					<option value="">Select Service Provider</option>
 					<option th:each="listServ : ${listServices}" th:value="${listServ.serviceId}" th:text="${listServ.companyName}"
-						th:selected="${nameService}"></option>
+						th:selected="${listServ.companyName.equals(nameService)}"></option>
 				</select>
 			</div>
 					<!--		<select th:field="*{status}">

@@ -1,5 +1,7 @@
 package com.thorapetropoulosbuildingmanagement.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.thorapetropoulosbuildingmanagemen.exceptions.ApiRequestException;
 import com.thorapetropoulosbuildingmanagement.model.ApartmentUnit;
 import com.thorapetropoulosbuildingmanagement.model.Issue;
+import com.thorapetropoulosbuildingmanagement.model.IssueArchived;
 import com.thorapetropoulosbuildingmanagement.model.ServiceProvided;
 import com.thorapetropoulosbuildingmanagement.model.Task;
 import com.thorapetropoulosbuildingmanagement.model.Tenant;
 import com.thorapetropoulosbuildingmanagement.service.ApartmentUnitService;
+import com.thorapetropoulosbuildingmanagement.service.IssueService;
 import com.thorapetropoulosbuildingmanagement.service.ServiceProvidedService;
 import com.thorapetropoulosbuildingmanagement.service.TenantService;
 import com.thorapetropoulosbuildingmanagement.utilities.TaskCategories;
@@ -35,6 +39,9 @@ public class ApartmentUnitController {
 	
 	@Autowired
 	private TenantService tenantService;
+	
+	@Autowired
+	private IssueService issueService;
 	
 	/*
 	 * display a new apartment form. Dropdowns are prepopulated with enum values and a new Aparment Unit object is passed to the model as an attributed
@@ -90,7 +97,47 @@ public class ApartmentUnitController {
 	    	return "redirect:/listApartments";
 	    }
 	    
-	    
+		@GetMapping("/showFormFormDeleteApartment/{id}")
+		public String deleteApt(@PathVariable(value = "id") Integer id, Model model) {
+			
+			ApartmentUnit apartmentUnit;
+			List<Issue> issues = issueService.findAll();
+			boolean checkApt = false;
+			for(Issue i : issues) {
+		
+				if(i.getApartmentUnit() != null) {
+				
+				  if(i.getApartmentUnit().getApartmentId() == id) {
+					  checkApt = true;
+					  System.out.println("Issue associated with apartment");
+				  }
+				}		
+			}
+			if(checkApt) {
+				apartmentUnit = new ApartmentUnit();
+				apartmentUnit.setApartmentUnitNumber(0000); 
+			} else {
+				apartmentUnit = apartmentUnitService.findById(id);
+			}
+			
+	
+
+		  model.addAttribute("aptUnit",apartmentUnit);
+		  
+
+			return "deleteApartmentForm";
+		}  
+		
+		
+		// new - double check for functionality
+		@GetMapping("/deleteApartment")
+		public String deleteApartment(@ModelAttribute("aptUnit") ApartmentUnit aptUnit) {
+			apartmentUnitService.deleteById(aptUnit.getApartmentId());
+				
+		   return "redirect:/listApartments";
+		}
+
+
 		
 	@GetMapping("/listApartments")
 	public String viewApartmentList(Model model) {
@@ -107,6 +154,7 @@ public class ApartmentUnitController {
 		}
 		return result;
 		
+
 		
 //		List<ApartmentUnit> apartmentUnits = apartmentUnitService.findAll();
 //		System.out.println("This is the apartment unit list " + apartmentUnits);

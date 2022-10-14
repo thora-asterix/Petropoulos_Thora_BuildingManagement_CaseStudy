@@ -183,6 +183,15 @@ public class IssueController {
 		issueCategories.add(issueObject.getIssueCategory());
 
 		model.addAttribute("issueCategories", issueCategories);
+		
+//		List<String> issueCategoriesList = new ArrayList<>();
+//		issueCategories.add(IssueCategories.CARPENTRY.value);
+//		issueCategories.add(IssueCategories.CLEANING.value);
+//		issueCategories.add(IssueCategories.ELECTRIC.value);
+//		issueCategories.add(IssueCategories.GENERAL.value);
+//		issueCategories.add(IssueCategories.PLUMBING.value);
+//
+//		model.addAttribute("issueCategoriesList", issueCategories);
 
 		List<String> issueStatus = new ArrayList<>();
 		issueStatus.add(IssueStatusValues.CLOSED.value);
@@ -198,6 +207,10 @@ public class IssueController {
 		ServiceProvided listService = serviceProvidedService.findById(issueObject.getService().getServiceId());
 		listServices.add(listService);
 		model.addAttribute("listServices", listServices);
+		
+		List<ServiceProvided> listProviders = serviceProvidedService.findAll();
+
+		model.addAttribute("listServicesAll", listProviders);
 
 		String nameService = issueObject.getService().getCompanyName();
 		model.addAttribute("nameService", nameService);

@@ -44,7 +44,7 @@
 					<input type="hidden" th:field="*{issueId}" />
 					<div class="form-group">
 						<label>Select Issue Type:</label>
-						<select class="form-control" th:field="*{issueCategory}" required>
+						<select th:readonly="true" class="form-control" th:field="*{issueCategory}" required>
 							<option value="">Issue Type</option>
 							<option th:each="issueCateg : ${issueCategories}" th:value="${issueCateg}"
 								th:text="${issueCateg}"></option>
@@ -52,7 +52,7 @@
 					</div>
 					<div class="form-group">
 						<label>Select Issue Status:</label>
-						<select class="form-control" th:field="*{status}" required>
+						<select  class="form-control" th:field="*{status}" required>
 							<option value="">Issue Status</option>
 							<option th:each="issueSt : ${issueStatus}" th:value="${issueSt}" th:text="${issueSt}">
 							</option>
@@ -67,9 +67,12 @@
 							class="form-control" th:readonly="${idService}" required>  -->
 					<select class="form-control" name="idService" required>
 						<option value="">Select Service Provider</option> 
-						<option th:each="listServ : ${listServices}" th:value="${idService}"
-							th:text="${listServ.companyName}" th:selected="${nameService}" ></option>
+						<option th:each="listServ : ${listServicesAll}" th:value="${listServ.serviceId}"
+							th:text="${listServ.companyName}" th:selected="${listServ.companyName.equals(nameService)}" ></option>
 					</select> 
+					
+				
+				
 					<br>
 					<label>Apartment Unit</label>
 					<input type="text"  th:readonly="true" placeholder="Enter Apartment Unit Number" name="idApartment"

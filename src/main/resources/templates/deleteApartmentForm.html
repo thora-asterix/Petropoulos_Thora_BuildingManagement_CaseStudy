@@ -38,15 +38,16 @@
 		<div class="row d-flex justify-content-center">
 			<div class="col-3 dark-grey-column"></div>
 			<div class="col-6 justify-content-center ">
-				<h2 class="d-flex align-content-center my-3">Delete Tenant</h2>
-				<form action="#" th:action="@{/deleteTenant}" th:object="${tenant}" method="GET">            
-					<input type="hidden" th:field="*{tenantId}" />
-                    
-                   <div th:switch=${tenant.firstName}>
-                   <p th:case="'Invalid'">Tenant can not be removed. Tenant currently associated with an apartment unit.</p>
+				<h2 class="d-flex align-content-center my-3">Apartment to be deleted</h2>
+			
+					<form action="#" th:action="@{/deleteApartment}" th:object="${aptUnit}" method="GET">            
+					<input type="hidden" th:field="*{apartmentId}" />
+                  <div th:switch=${aptUnit.apartmentUnitNumber}>
+                   <p th:case="0000">Apartment can not be removed. Apartment currently associated with a tenant or a pending issue.</p>
 	
-                   <button th:case="*" type="submit" class="btn btn-danger"> Delete Tenant</button>
+                   <button th:case="*" type="submit" class="btn btn-danger"> Delete Apartment</button>
                    </div>     
+                   
 					
 				</form>
 			</div>

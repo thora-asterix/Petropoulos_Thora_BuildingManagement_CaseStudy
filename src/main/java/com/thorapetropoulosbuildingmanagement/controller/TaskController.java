@@ -116,12 +116,21 @@ public class TaskController {
 		
 		Task taskObject = taskService.findById(id);
 		
+		
 		model.addAttribute("taskObject",taskObject);
 		
-	  	List<String> taskTypes = new ArrayList<>();
-        taskTypes.add(taskObject.getTaskName());
+		List<String> taskTypes = new ArrayList<>();
+        taskTypes.add(TaskCategories.GENERALCLEANING.value);
+        taskTypes.add(TaskCategories.GENERALREPAIR.value);
+        taskTypes.add(TaskCategories.POOLMAINTANANCE.value);	
+    	
+    	model.addAttribute("taskCategoriesList", taskTypes);
+	
+		
+	  	List<String> taskType = new ArrayList<>();
+        taskType.add(taskObject.getTaskName());
        
-    	model.addAttribute("taskCategories", taskTypes);
+    	model.addAttribute("taskCategories", taskType);
     	
     	
     	List<String> taskStatus = new ArrayList<>();
@@ -130,10 +139,13 @@ public class TaskController {
     	
     	model.addAttribute("taskStatus",taskStatus);
     	
-    	List<ServiceProvided> listServices = new ArrayList<ServiceProvided>();
+    // 	List<ServiceProvided> listServices = new ArrayList<ServiceProvided>();
     	
-        ServiceProvided listService = serviceProvided.findById(taskObject.getService().getServiceId());
-        listServices.add(listService);
+ 	List<ServiceProvided> listServices = serviceProvided.findAll();
+    	
+       ServiceProvided listService = serviceProvided.findById(taskObject.getService().getServiceId());
+      //  model.addAttribute("companyName", listService.getCompanyName());
+    //    listServices.add(listService);
     	model.addAttribute("listServices",listServices);
     	
     	String idService = Integer.toString(taskObject.getService().getServiceId());
