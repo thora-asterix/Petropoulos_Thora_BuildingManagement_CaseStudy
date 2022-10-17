@@ -1,6 +1,7 @@
 # Petropoulos_Thora_BuildingManagement_CaseStudy
 
 Petropoulos_Thora_BuildingManagement_CaseStudy
+
 What is the Building Management System?
 
 This application aims to help a building superintendent to keep track of everyday tasks and issues 
@@ -19,6 +20,7 @@ Spring Boot, with Spring JPA Data, and Spring Web as the back-end framework, alo
 For the front-end of the application the following technologies were used:
 
 Thymeleaf templates were used, along with Bootstrap, CSS3, HTML5 and JavaScript
-A small React app was also created as front-end technology that consumes the public API of vacant apartments 
+
+A small React app was also created as front-end technology that consumes the public API of vacant apartments. The name of the repository is apartments-api.
 (This is a small side project to practice using other front-end technologies besides Thymeleaf templates. 
 It was completed with React, Bootstrap and the AXIOS library
