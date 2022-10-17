@@ -21,6 +21,18 @@ For the front-end of the application the following technologies were used:
 
 Thymeleaf templates were used, along with Bootstrap, CSS3, HTML5 and JavaScript
 
+How to run the application: Run the application as a spring boot application once. Once tables have been created in MariaDB, insert the following user in the users table:
+
+INSERT INTO `users` (`username`,`password`,`role`,`enabled`)
+VALUES ('admin',
+'$2a$10$XptfskLsT1l/bRTLRiiCgejHqOpgXFreUnNUa35gJdCr2v2QbVFzu',
+'ROLE_USER', 1);
+ 
+ To login to the application teh credentials will be: 
+ username: admin
+ password: admin
+
+
 A small React app was also created as front-end technology that consumes the public API of vacant apartments. The name of the repository is apartments-api.
 (This is a small side project to practice using other front-end technologies besides Thymeleaf templates. 
 It was completed with React, Bootstrap and the AXIOS library
