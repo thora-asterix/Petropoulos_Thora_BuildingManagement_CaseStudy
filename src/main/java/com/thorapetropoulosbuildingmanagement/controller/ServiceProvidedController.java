@@ -47,13 +47,9 @@ public class ServiceProvidedController {
     	serviceTypes.add(ServiceCategories.GENERALCLEANING.value);
     	serviceTypes.add(ServiceCategories.LOCKSMITH.value);
     	serviceTypes.add(ServiceCategories.PLUMBER.value);
+    	serviceTypes.add(ServiceCategories.ELECTRICIAN.value);
     	serviceTypes.add(ServiceCategories.POOLMAINTANANCE.value);
     	serviceTypes.add(ServiceCategories.WINDOWCLEANING.value);
-    	
-    	
-    	for(String s : serviceTypes) {
-    		System.out.println(s);
-    	}
     	
     	model.addAttribute("serviceCategories", serviceTypes);
     	
@@ -147,14 +143,25 @@ public class ServiceProvidedController {
 	@GetMapping("/showFormForUpdateServiceProvided/{id}")
 	public String showFormForUpdateServiceProvided(@PathVariable (value = "id") Integer id, Model model ) {
 		
-		ServiceProvided serviceProvidedTemp = serviceProvidedService.findById(id);
-		
+		ServiceProvided serviceProvidedTemp = serviceProvidedService.findById(id);	
 		model.addAttribute("serviceProvided",serviceProvidedTemp);
 		
-    	List<String> serviceTypes = new ArrayList<>();
-    	serviceTypes.add(serviceProvidedTemp.getServiceType());
+		
+		
+//    	List<String> serviceTypes = new ArrayList<>();
+//    	serviceTypes.add(serviceProvidedTemp.getServiceType());
+//    	model.addAttribute("serviceCategories", serviceTypes);
     	
-  
+     	List<String> serviceTypes = new ArrayList<>();
+    	serviceTypes.add(ServiceCategories.CARPENTER.value);
+    	serviceTypes.add(ServiceCategories.CARPETCLEANING.value);
+    	serviceTypes.add(ServiceCategories.GENERALCLEANING.value);
+    	serviceTypes.add(ServiceCategories.LOCKSMITH.value);
+    	serviceTypes.add(ServiceCategories.PLUMBER.value);
+    	serviceTypes.add(ServiceCategories.ELECTRICIAN.value);
+    	serviceTypes.add(ServiceCategories.POOLMAINTANANCE.value);
+    	serviceTypes.add(ServiceCategories.WINDOWCLEANING.value);
+    	
     	model.addAttribute("serviceCategories", serviceTypes);
 		
 		return "updateServiceProvidedForm";

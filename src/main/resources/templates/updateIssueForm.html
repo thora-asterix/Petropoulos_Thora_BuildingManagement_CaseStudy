@@ -68,7 +68,7 @@
 					<select class="form-control" name="idService" required>
 						<option value="">Select Service Provider</option> 
 						<option th:each="listServ : ${listServicesAll}" th:value="${listServ.serviceId}"
-							th:text="${listServ.companyName}" th:selected="${listServ.companyName.equals(nameService)}" ></option>
+							th:text="${listServ.companyName + ' -- ' + listServ.serviceType}" th:selected="${listServ.companyName.equals(nameService)}" ></option>
 					</select> 
 					
 				

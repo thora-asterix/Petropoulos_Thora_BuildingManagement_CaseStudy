@@ -70,7 +70,7 @@
 				<label>Service Company</label>
 				<select class="form-control" name="id" required>
 					<option value="">Select Service Provider</option>
-					<option th:each="listServ : ${listServices}" th:value="${listServ.serviceId}" th:text="${listServ.companyName}"
+					<option th:each="listServ : ${listServices}" th:value="${listServ.serviceId}"th:text="${listServ.companyName + ' -- ' + listServ.serviceType}"
 						th:selected="${listServ.companyName.equals(nameService)}"></option>
 				</select>
 			</div>

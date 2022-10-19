@@ -113,7 +113,8 @@ public class ApartmentUnitController {
 				  }
 				}		
 			}
-			if(checkApt) {
+			
+			if(checkApt || apartmentUnitService.findById(id).getRentalStatus().equals("Occupied")) {
 				apartmentUnit = new ApartmentUnit();
 				apartmentUnit.setApartmentUnitNumber(0000); 
 			} else {

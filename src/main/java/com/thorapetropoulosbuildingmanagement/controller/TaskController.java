@@ -1,7 +1,9 @@
 package com.thorapetropoulosbuildingmanagement.controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -54,7 +56,10 @@ public class TaskController {
 	    	
 	    	model.addAttribute("taskStatus",taskStatus);
 	    	
-	    	List<ServiceProvided> listServices = serviceProvided.findAll();
+	    	List<ServiceProvided> listServicesUnsorted = serviceProvided.findAll();
+	    	
+	    	List<ServiceProvided> listServices = listServicesUnsorted.stream().sorted(Comparator.comparing(ServiceProvided::getServiceType))
+	    			.collect(Collectors.toList());
 	    	
 	    	model.addAttribute("listServices",listServices);
 	     	

@@ -68,7 +68,7 @@
 						<select class="form-control" name="id" required>
 							<option value="">Select Service Provider</option>
 							<option th:each="listServ : ${listServices}" th:value="${listServ.serviceId}"
-								th:text="${listServ.companyName}"></option>
+								th:text="${listServ.companyName + ' -- ' + listServ.serviceType}"></option>
 						</select>
 					</div>
 					<button type="submit" class="btn btn-secondary"> Save Task</button>

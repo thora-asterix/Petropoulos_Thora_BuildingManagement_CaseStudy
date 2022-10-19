@@ -4,8 +4,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,13 +77,18 @@ public class IssueController {
 
 		model.addAttribute("issueStatus", issueStatus);
 
-		List<ServiceProvided> listProviders = serviceProvidedService.findAll();
-
-		model.addAttribute("listServices", listProviders);
+		List<ServiceProvided> listServicesUnsorted = serviceProvidedService.findAll();
+    	
+    	List<ServiceProvided> listServices = listServicesUnsorted.stream()
+    			.sorted(Comparator.comparing(ServiceProvided::getServiceType))
+    			.collect(Collectors.toList());
+    	model.addAttribute("listServices",listServices);
 
 		List<ApartmentUnit> listApartments = apartmentUnitService.findAll();
-
-		model.addAttribute("listApartments", listApartments);
+		List<ApartmentUnit> listApartmentsSorted = listApartments.stream()
+				.sorted(Comparator.comparing(ApartmentUnit::getApartmentUnitNumber))
+				.collect(Collectors.toList());
+		model.addAttribute("listApartments", listApartmentsSorted);
 
 		return "newIssueForm";
 	}
@@ -208,9 +215,11 @@ public class IssueController {
 		listServices.add(listService);
 		model.addAttribute("listServices", listServices);
 		
-		List<ServiceProvided> listProviders = serviceProvidedService.findAll();
-
-		model.addAttribute("listServicesAll", listProviders);
+		List<ServiceProvided> listServicesUnsorted = serviceProvidedService.findAll();
+    	
+    	List<ServiceProvided> listServicesAll = listServicesUnsorted.stream().sorted(Comparator.comparing(ServiceProvided::getServiceType))
+    			.collect(Collectors.toList());
+    	model.addAttribute("listServicesAll",listServicesAll);
 
 		String nameService = issueObject.getService().getCompanyName();
 		model.addAttribute("nameService", nameService);

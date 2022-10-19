@@ -65,7 +65,7 @@
 						<select class="form-control" name="tenantId" required>
 							<option value="">Assign Tenant</option>
 							<option th:each="listTen : ${listTenants}" th:value="${listTen.tenantId}"
-								th:text="${listTen.email}" th:selected="${emailTenant}" ></option>
+								th:text="${listTen.email + '--'+ listTen.firstName + ' '+ listTen.lastName}" th:selected="${emailTenant}" ></option>
 						</select> 
 					</div> 
           <!--   <label>Tenant</label>
