@@ -28,7 +28,7 @@ VALUES ('admin',
 '$2a$10$XptfskLsT1l/bRTLRiiCgejHqOpgXFreUnNUa35gJdCr2v2QbVFzu',
 'ROLE_USER', 1);
  
- To login to the application teh credentials will be: 
+ To login to the application the credentials will be: 
  username: admin
  password: admin
 
